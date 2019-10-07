@@ -1,0 +1,70 @@
+<html>
+<head>
+
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	<title>MyThingWorks-IoT Products Store</title>
+
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-light"  style="background-color: #e3f2fd;">
+		<ul class="nav navbar-nav navbar-left">
+			<li><a class ="navbar-brand" href="/">Home</a></li>
+			<li><a href="/admin_login/"><h5>Admin Login</h5></a></li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li><a class ="navbar-brand" href="/cart/">Cart <b>({{cart_size}}) Items</b></a></li>
+			<li><a href="/cart/checkout/">Checkout!</a></li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<div class="page-header" style="text-align:center">
+		<h2>MyThingWorks</h2>
+	</div>
+
+	<style type="text/css">
+	.centerdv
+	{
+		width: 45%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+
+
+</style>
+
+
+<div class="container well centerdv">
+	
+	<h3>Login</h3>
+	<br>
+
+<form method="post">
+	
+	{% csrf_token %}
+	{% if login == False %}
+	<div class="alert alert-danger" role="alert">Incorrect Username or Password</div>
+	{% endif %}
+	<b>Username:</b>
+	<input type="text" name="username" class="form-control">
+	<br>
+	<b>Password:</b>
+	<input type="password" name="password" class="form-control">
+	<br>
+	<input type="submit" value="Login!" class="btn btn-success btn-lg">
+
+</form>
+
+
+</div>
+</body>
+</html>
