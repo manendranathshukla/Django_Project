@@ -1,0 +1,80 @@
+<html>
+<head>
+
+	  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+	<title>MyThingWorks-IoT Products Store</title>
+
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top navbar-light"  style="background-color: #e3f2fd;">
+		<ul class="nav navbar-nav navbar-left">
+			<li><a class ="navbar-brand" hre="/">Home</a></li>
+			<li><a href="/admin_login/"><h5>Admin Login</h5></a></li>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li><a class ="navbar-brand" href="/cart/">Cart <b>({{cart_size}}) Items</b></a></li>
+			<li><a href="/cart/checkout/">Checkout!</a></li>
+		</ul>
+	</nav>
+	<br>
+	<br>
+	<div class="page-header" style="text-align:center">
+		<h2>MyThingWorks</h2>
+	</div>
+
+	<style type="text/css">
+	.centerdv
+	{
+		width: 45%;
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+</style>
+
+<div class="container centerdv">
+	<h3>Total Price:<br> <br><span class="label label-success">{{total_price}}</span>
+
+	<div class="well">
+		<form method="post" action="complete/" class="centerdv">
+			{% csrf_token %}
+			<h4>Billing Infromation</h4>
+			<b>First Name:</b>
+			<input type="text" name="first_name" class="form-control">
+			<br>
+			<b>Last Name:</b>
+			<input type="text" name="last_name" class="form-control">
+			<br>
+			<b>Address:</b>
+			<input type="text" name="address" class="form-control">
+			<br>
+			<b>City:</b>
+			<input type="text" name="city" class="form-control">
+			<br>
+
+
+			<h4>Payment Information</h4>
+				<br>
+				<b>Payment Type:</b>
+				<br>
+				<input type="radio" name="payment" value="paypal">
+				Paypal
+				<br>
+				<input type="radio" name="payment" value="credit_card">
+				Credit Card
+				<br>
+				<b>Paypal Email/ CC Number</b>
+				<input type="text " name="payment_data" class="form-control">
+				<input type="submit" value="Complete Order!" class="btn btn-success">
+
+		</form>
+	</div>
+
+</div>
